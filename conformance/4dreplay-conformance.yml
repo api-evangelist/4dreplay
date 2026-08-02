@@ -1,0 +1,75 @@
+generated: '2026-08-02'
+method: derived
+source: >-
+  Derived from live probes of 4dreplay.com / 4dist.com recorded in
+  well-known/4dreplay-well-known.yml and security/4dreplay-domain-security.yml.
+  No provider-published compliance or conformance claim was found.
+context: >-
+  4DReplay ships broadcast hardware/software and the 4Dist consumer OTT platform.
+  It publishes no public developer API program, so most API-facing standards are
+  not applicable rather than failed.
+standards:
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document at any probed path on 4dreplay.com, 4dist.com,
+    www.4dist.com or api.4dist.com (all 404). See well-known/4dreplay-well-known.yml.
+- id: asyncapi
+  conforms: false
+  evidence: No published event, webhook or streaming contract found.
+- id: graphql
+  conforms: false
+  evidence: https://4dist.com/graphql returned 404.
+- id: mcp
+  conforms: false
+  evidence: >-
+    No MCP server. mcp.4dist.com is a wildcard alias of the 4Dist landing host and
+    returned 405 Not Allowed to a JSON-RPC tools/list POST.
+- id: a2a-agent-card
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json returned 404 on every host.
+- id: rfc8615-well-known
+  conforms: false
+  evidence: No /.well-known/ documents served on any host.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404 on 4dreplay.com and 4dist.com.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    4Dist offers consumer social sign-in (Google, Apple, Kakao, LINE) per
+    https://4dist.com/register.html, but publishes no OAuth authorization-server
+    metadata and exposes no third-party OAuth surface.
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 404 on all hosts.
+- id: content-signals-policy
+  conforms: true
+  evidence: >-
+    https://4dreplay.com/robots.txt carries a Cloudflare Content Signals Policy
+    (Content-Signal: search=yes,ai-train=no,use=reference) plus explicit Disallow
+    directives for CCBot, ClaudeBot, Google-Extended, GPTBot and meta-externalagent.
+    Captured verbatim at well-known/4dreplay-content-signals-robots.txt.
+- id: sitemaps-protocol
+  conforms: true
+  evidence: https://4dreplay.com/sitemap.xml and https://4dist.com/sitemap.xml both return 200 valid urlset documents.
+- id: tls-1-3
+  conforms: true
+  evidence: Both 4dreplay.com and 4dist.com negotiate TLSv1.3 (security/4dreplay-domain-security.yml).
+- id: hsts
+  conforms: false
+  evidence: Neither host returns a Strict-Transport-Security header.
+observed_undocumented_surface:
+  note: >-
+    4dist.com serves a first-party JSON API under /api/ that backs the 4Dist web app.
+    It is explicitly Disallow'd in https://4dist.com/robots.txt, is undocumented, and is
+    NOT a published developer API — it is recorded here as an observation only and is
+    deliberately NOT registered as an API in apis.yml. No spec has been derived from it.
+  endpoints_referenced_in_public_first_party_assets:
+  - {path: /api/health, source: probe, status: 200, media_type: application/json}
+  - {path: /api/auth/me, source: 'https://4dist.com/auth-nav.js, https://4dist.com/i18n.js'}
+  - {path: /api/auth/me/lang, source: https://4dist.com/i18n.js}
+  - {path: /api/auth/logout, source: https://4dist.com/auth-nav.js}
+  - {path: /api/visit/ping, source: https://4dist.com/auth-nav.js}
+  - {path: /api/contact, source: https://4dist.com/index.html}

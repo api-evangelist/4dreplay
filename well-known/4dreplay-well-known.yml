@@ -1,0 +1,86 @@
+generated: '2026-08-02'
+method: probed
+source: live HTTP probe of 4DReplay / 4Dist hosts
+summary:
+  well_known_documents_found: 0
+  note: >-
+    No /.well-known/ discovery documents are published on any 4DReplay or 4Dist host.
+    4DReplay does, however, publish a Cloudflare Content Signals Policy plus explicit
+    AI-crawler directives in https://4dreplay.com/robots.txt — captured verbatim in
+    4dreplay-content-signals-robots.txt and pointed at from apis.yml as type ContentSignal.
+  wildcard_warning: >-
+    *.4dist.com resolves to a single wildcard host (135.180.186.179) that serves the
+    4Dist landing page for any unmatched subdomain. status.4dist.com, mcp.4dist.com and
+    api.4dist.com all return HTTP 200 with the same HTML landing page and are therefore
+    NOT a status page, an MCP server, or an API host. Recorded here so a later round does
+    not re-record them as hits.
+hosts:
+- host: https://4dreplay.com
+- host: https://4dist.com
+- host: https://www.4dist.com
+- host: https://api.4dist.com
+documents: []
+probes:
+- host: 4dreplay.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+  - {path: /openapi.json, status: 404}
+  - {path: /openapi.yaml, status: 404}
+  - {path: /swagger.json, status: 404}
+  - {path: /api-docs, status: 404}
+  - {path: /robots.txt, status: 200, file: 4dreplay-content-signals-robots.txt}
+  - {path: /sitemap.xml, status: 200}
+- host: 4dist.com
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /llms.txt, status: 404}
+  - {path: /openapi.json, status: 404}
+  - {path: /openapi.yaml, status: 404}
+  - {path: /openapi.yml, status: 404}
+  - {path: /swagger.json, status: 404}
+  - {path: /api-docs, status: 404}
+  - {path: /api/openapi.json, status: 404}
+  - {path: /api/v1/openapi.json, status: 404}
+  - {path: /api/swagger.json, status: 404}
+  - {path: /api/spec, status: 404}
+  - {path: /graphql, status: 404}
+  - {path: /robots.txt, status: 200}
+  - {path: /sitemap.xml, status: 200}
+- host: api.4dist.com
+  note: wildcard alias of 4dist.com, not a distinct API host
+  results:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+  - {path: /openapi.json, status: 404}
+  - {path: /swagger.json, status: 404}
+- host: mcp.4dist.com
+  note: wildcard alias; POST tools/list returned 405 Not Allowed (nginx), not an MCP server
+  results:
+  - {path: / (POST jsonrpc tools/list), status: 405}
+content_signals:
+  source: https://4dreplay.com/robots.txt
+  file: 4dreplay-content-signals-robots.txt
+  fetched: '2026-08-02'
+  http_status: 200
+  policy: 'search=yes,ai-train=no,use=reference'
+  ai_crawlers_disallowed:
+  - CCBot
+  - ClaudeBot
+  - CloudflareBrowserRenderingCrawler
+  - Google-Extended
+  - GPTBot
+  - meta-externalagent

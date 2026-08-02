@@ -1,0 +1,32 @@
+generated: '2026-08-02'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: 4dreplay.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 21 23:22:32 2026 GMT
+  hsts: false
+- host: 4dist.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct 15 15:37:16 2026 GMT
+  hsts: false
+domains:
+- domain: 4dreplay.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: 4dist.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
+  dmarc_policy: null
+findings:
+- No HSTS on either host.
+- No CAA records on either registrable domain.
+- No DNSSEC on either registrable domain.
+- 4dist.com publishes neither SPF nor DMARC; 4dreplay.com publishes both, but DMARC policy is p=none (monitor only).
