@@ -14,6 +14,17 @@ description: '4DReplay is a media technology company that builds multi-camera, t
   and the Olympics. As of August 2026 4DReplay publishes no public developer API, SDK,
   or machine-readable API contract; its surfaces are broadcast integrations and the
   consumer/operator 4Dist web and mobile apps.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://4dist.com/og-image.png
 url: https://raw.githubusercontent.com/api-evangelist/4dreplay/refs/heads/main/apis.yml
 x-type: company
