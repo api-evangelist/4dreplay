@@ -64,57 +64,84 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-4DReplay is a media technology company that builds multi-camera, time-slice ("bullet-time")
-video capture and replay systems for live sports, entertainment and events. Arrays of roughly
-50 to 120 synchronized cameras — locked to within 1/10,000 of a second — are processed in real
-time to produce any-angle replay highlights within seconds of a play and deliver them to
-broadcast, mobile and OTT audiences.
+4DReplay is a media technology company that builds multi-camera, time-slice ("bullet-time") video capture and replay systems for live sports, entertainment and events. Arrays of roughly 50 to 120 synchronized cameras — locked to within 1/10,000 of a second — are processed in real time to produce any-angle replay highlights within seconds of a play and deliver them to broadcast, mobile and OTT audiences. The product line spans 4DReplay (premium broadcast instant replay), 4DReplay+ / 4DLive (5G-based interactive multi-view live streaming with speed, angle and tracking overlays), and 4Dist, a browser-based interactive OTT platform that adds automated AI motion and swing analysis for academies, coaches and players. Founded in 2012 by Hongsu Jung and headquartered in San Mateo, California, with offices in Seoul and Tokyo, the company has worked with ESPN, NBC, CBS, FOX Sports, the NBA, MLB, NHL, the PGA Championship and the Olympics. As of August 2026 4DReplay publishes no public developer API, SDK, or machine-readable API contract; its surfaces are broadcast integrations and the consumer/operator 4Dist web and mobile apps.
 
-Founded in 2012 by Hongsu Jung; headquartered in San Mateo, California, with offices in Seoul
-and Tokyo. Work has appeared with ESPN, NBC, CBS, FOX Sports, the NBA, MLB, NHL, the PGA
-Championship and the Olympics.
+**Areas:** Company · Video · Sports · Media · Broadcasting · Streaming · OTT · Artificial Intelligence · Computer Vision · Entertainment
 
-## Products
+## 4DReplay on APIs.io
 
-- **4DReplay** — premium broadcast instant replay, frame-accurate multi-camera capture.
-- **4DReplay+ / 4DLive** — broadcast replay with live speed/angle/tracking overlays and
-  5G-based interactive multi-view live streaming.
-- **4Dist** (<https://4dist.com/>) — browser-based interactive OTT platform with automated
-  AI motion and swing analysis for academies, coaches and players.
+Everything profiled for 4DReplay is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/4dreplay/](https://apis.io/providers/4dreplay/)** — or go straight to one of the APIs or properties below.
 
-## API status
+### Published properties
 
-As of 2026-08-02, 4DReplay publishes **no public developer API**. Probes of `4dreplay.com`,
-`4dist.com`, `www.4dist.com` and `api.4dist.com` found no OpenAPI/Swagger, GraphQL, AsyncAPI,
-MCP server, A2A agent card, `/.well-known/` document, SDK, CLI, Postman collection, developer
-portal, sandbox, status page or changelog. Integration is a commercial/broadcast engagement
-via <https://4dist.com/contact.html>.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-`*.4dist.com` is a **wildcard host** — `api.4dist.com`, `status.4dist.com` and `mcp.4dist.com`
-all return the 4Dist landing page and must not be recorded as an API host, status page or MCP
-server.
+#### Security (1)
 
-4dist.com does serve a first-party JSON API under `/api/` that backs its own web app, but it is
-`Disallow`'d in robots.txt, undocumented, and deliberately **not** registered as an API here.
+Authentication, trust centre, and vulnerability disclosure.
 
-## AI and crawler policy
+- [4Dreplay Domain Security](https://apis.io/security/4dreplay/4dreplay-domain-security/)
 
-4DReplay publishes a Cloudflare Content Signals Policy at <https://4dreplay.com/robots.txt> —
-`Content-Signal: search=yes, ai-train=no, use=reference` — and disallows CCBot, ClaudeBot,
-Google-Extended, GPTBot and meta-externalagent. Captured verbatim at
-`well-known/4dreplay-content-signals-robots.txt`.
+## Where to find this API
 
-## Artifacts
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-| Path | What |
+- [Website](https://4dreplay.com/)
+- [Documentation](https://4dist.com/manual.html)
+- [Sign up](https://4dist.com/register.html)
+- [Support](https://4dist.com/contact.html)
+- [Terms of service](https://4dist.com/terms.html)
+- [Privacy policy](https://4dist.com/privacy.html)
+
+## API Evangelist rating
+
+**Kin Score 16.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
 |---|---|
-| `apis.yml` | APIs.json catalog record |
-| `well-known/4dreplay-well-known.yml` | Full `/.well-known/` + spec-discovery probe record |
-| `well-known/4dreplay-content-signals-robots.txt` | Verbatim robots.txt with the Content Signals Policy |
-| `security/4dreplay-domain-security.yml` | TLS / HSTS / DNSSEC / CAA / SPF / DMARC probe |
-| `conformance/4dreplay-conformance.yml` | Standards conformance, derived from probes |
-| `llms/4dreplay-llms.txt` | Generated llms.txt (provider publishes none) |
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 34.2 |
 
-- <https://4dreplay.com/>
-- <https://4dist.com/>
-- Secondary-market listing: <https://forgeglobal.com/4dreplay_stock/>
+**Agent readiness 2.2** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | yes |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/4dreplay/](https://apis.io/providers/4dreplay/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for 4DReplay: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/4dreplay/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
